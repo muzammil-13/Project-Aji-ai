@@ -8,7 +8,7 @@
 
 **Aji** (meaning *Grandmother* in Odia) is a voice-first WhatsApp assistant designed to ensure that no citizen ever has to endure the trauma of physical verification for banking and government services during times of grief.
 
-Inspired by the tragic incident in Odisha where [a man had to carry his sister's remains to a bank](https://www.bbc.com/news/articles/clypl5jrjqlo), **Aji** acts as a native-language bridge between complex bureaucratic requirements and marginalized citizens.
+Inspired by the tragic incident in Odisha where [a man had to carry his sister&#39;s remains to a bank](https://www.bbc.com/news/articles/clypl5jrjqlo), **Aji** acts as a native-language bridge between complex bureaucratic requirements and marginalized citizens.
 
 ---
 
@@ -42,6 +42,7 @@ The goal is to move the burden of proof from the **individual** to the **infrast
 4. **Empathy Response:** Aji explains the user's rights (e.g., Doorstep Banking, Digital Attestation) and guides them through the next steps in a comforting Odia voice note.
 
 ### AJI Conversation Flow
+
 ![AJI Conversation Flow](docs/images/aji_conversation_flow.svg)
 
 ## 💻 Quick Start (Prototype Setup)
@@ -90,7 +91,3 @@ We believe tech should serve the most vulnerable first. If you are a developer, 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details. Built for the public good.
 
 ---
-
-### What do you think of this README?
-
-I’ve highlighted **Sarvam AI** and the **Odia** context prominently. Should we add a specific section for **"The Bank Manager Portal"** (where the bank sees the verification) or keep it focused solely on the **User's Experience** for now?
