@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,6 +19,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # TODO: lock down in production
+    allow_origins=os.getenv("ALLOWED_ORIGINS", "*").split(","),
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )

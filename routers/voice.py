@@ -148,19 +148,3 @@ async def process_voice_message(incoming: IncomingVoiceMessage):
             "Mafi karanti. Kichhi samasyā achhi. Kuchha samaya pachhe punah try karanti."
             # "Sorry, there was a problem. Please try again in a moment."
         )
-
-
-async def send_whatsapp_audio(phone: str, audio_bytes: bytes, fallback_text: str):
-    """
-    TODO: implement WhatsApp Business API media upload + send.
-    For now, sends text fallback.
-    """
-    print(f"[STUB] Would send audio to {phone}. Fallback text: {fallback_text[:80]}...")
-    await send_whatsapp_text(phone, fallback_text)
-
-
-async def send_whatsapp_text(phone: str, text: str):
-    """
-    TODO: implement WhatsApp Business API text send.
-    """
-    print(f"[STUB] Would send text to {phone}: {text[:80]}...")
