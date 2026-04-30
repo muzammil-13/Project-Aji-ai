@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request, HTTPException, BackgroundTasks
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
 
 from models.schemas import IncomingVoiceMessage, AjiResponse, DistressLevel
 from services.sarvam import transcribe_audio, synthesize_speech
@@ -8,6 +8,23 @@ from services.knowledge import build_legal_guidance, format_response_text
 
 router = APIRouter(prefix="/voice", tags=["voice"])
 
+# Add this GET endpoint — Meta calls it once to verify your webhook is real
+
+@router.get("/webhook")
+async def verify_webhook(request: Request):
+    """
+    Meta sends a GET request with these query params to verify your webhook.
+    You must echo back hub.challenge if your verify token matches.
+    """
+    import os
+    mode      = request.query_params.get("hub.mode")
+    token     = request.query_params.get("hub.verify_token")
+    challenge = request.query_params.get("hub.challenge")
+
+    if mode == "subscribe" and token == os.getenv("WHATSAPP_VERIFY_TOKEN"):
+        return PlainTextResponse(content=challenge)
+
+    raise HTTPException(status_code=403, detail="Verification failed")
 
 @router.post("/webhook")
 async def whatsapp_webhook(request: Request, background_tasks: BackgroundTasks):

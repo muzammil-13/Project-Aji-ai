@@ -1,8 +1,10 @@
 from fastapi import FastAPI
+from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import voice, debug, triage
+from routers import voice, triage, debug
+
 
 load_dotenv()
 
@@ -21,10 +23,15 @@ app.add_middleware(
 )
 
 app.include_router(voice.router)
-app.include_router(debug.router)
 app.include_router(triage.router)
+app.include_router(debug.router)
 
 
 @app.get("/")
 async def root():
     return {"message": "Aji is listening. Send a voice message via WhatsApp."}
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return Response(content=b"", media_type="image/x-icon")
