@@ -1,0 +1,37 @@
+project-aji/
+├── .env                    # Secret keys (SARVAM_API_KEY, BANK_API_SECRET)
+├── .gitignore              # Ignore __pycache__, .env, and local wav files
+├── README.md               # The project vision, empathetic goals, and setup
+├── requirements.txt        # sarvamai, fastapi, uvicorn, python-multipart, pydantic
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # FastAPI entry point: Orchestrates WhatsApp webhooks
+│   │
+│   ├── core/
+│   │   ├── config.py       # Pydantic settings for API management
+│   │   └── security.py     # Token validation logic & PII scrubbing regex
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── sarvam_service.py # Integration with Saaras (STT), Sarvam-M (LLM), Bulbul (TTS)
+│   │   ├── bank_bridge.py    # Simulated API calls to the Bank's Token system
+│   │   └── empathy_engine.py # Logic for trauma-informed response flow
+│   │
+│   ├── prompts/
+│   │   ├── __init__.py
+│   │   ├── system_prompts.py # Hardcoded "Aji" persona and legal/safety guardrails
+│   │   └── legal_context.py  # Local Odisha banking rules & citizen rights (RTS)
+│   │
+│   ├── static/
+│   │   └── assets/         # UI icons for the WhatsApp Visual Cards (Green check, etc)
+│   │
+│   └── templates/
+│       └── document_card.html # HTML template for the "Digital Right-to-Service" card
+│
+├── tests/
+│   ├── test_stt.py         # Testing Odia dialect recognition
+│   ├── test_logic.py       # Testing token-gate & safety guardrails
+│   └── mock_audio/         # Sample .wav files for testing (distress scenarios)
+│
+└── prototype_demo.py       # Simplified script for quick "Vibe-Check" cli demo
