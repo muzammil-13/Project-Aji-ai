@@ -1,14 +1,8 @@
 INFO:     Will watch for changes in these directories: ['C:\\Users\\muzam\\Documents\\Contribute\\Project-Aji-ai']
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [17852] using WatchFiles
-INFO:     Started server process [21396]
+INFO:     Started reloader process [6492] using WatchFiles
+INFO:     Started server process [7792]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     2406:7400:51:d197:e0ca:b006:1df9:7d55:0 - "GET /voice/webhook?hub.mode=subscribe&hub.verify_token=aji_webhook_secret_2026&hub.challenge=test123 HTTP/1.1" 200 OK
-INFO:     2406:7400:51:d197:e0ca:b006:1df9:7d55:0 - "GET / HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58688 - "GET /debug/health HTTP/1.1" 200 OK
-INFO:     2a03:2880:10ff:72:::0 - "GET /?hub.mode=subscribe&hub.challenge=370698994&hub.verify_token=aji_webhook_secret_2026&hub_mode=subscribe&hub_challenge=370698994&hub_verify_token=aji_webhook_secret_2026 HTTP/1.1" 200 OK
-INFO:     2a03:2880:10ff:59:::0 - "GET /voice/webhook?hub.mode=subscribe&hub.challenge=687508743&hub.verify_token=aji_webhook_secret_2026&hub_mode=subscribe&hub_challenge=687508743&hub_verify_token=aji_webhook_secret_2026 HTTP/1.1" 200 OK
-INFO:     2a03:2880:10ff:59:::0 - "POST /voice/webhook HTTP/1.1" 200 OK
-INFO:     2a03:2880:10ff:40:::0 - "POST /voice/webhook HTTP/1.1" 200 OK
-INFO:     2a03:2880:10ff:4:::0 - "POST /voice/webhook HTTP/1.1" 200 OK
+INFO:     2a03:2880:10ff:5f:::0 - "POST /voice/webhook HTTP/1.1" 200 OK
+INFO:     2a03:2880:10ff:7:::0 - "POST /voice/webhook HTTP/1.1" 200 OK

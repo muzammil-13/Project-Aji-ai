@@ -1,3 +1,6 @@
+import os
+import httpx
+
 from fastapi import APIRouter, Request, HTTPException, BackgroundTasks
 from fastapi.responses import JSONResponse, PlainTextResponse
 
@@ -7,6 +10,43 @@ from services.triage import classify_triage, get_next_guided_question
 from services.knowledge import build_legal_guidance, format_response_text
 
 router = APIRouter(prefix="/voice", tags=["voice"])
+
+WHATSAPP_API_URL = "https://graph.facebook.com/v19.0"
+
+async def send_whatsapp_text(phone: str, text: str):
+    """
+    Sends a real WhatsApp text message via Meta Graph API.
+    """
+    phone_number_id = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
+    token = os.getenv("WHATSAPP_TOKEN")
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            f"{WHATSAPP_API_URL}/{phone_number_id}/messages",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "messaging_product": "whatsapp",
+                "to": phone,
+                "type": "text",
+                "text": {"body": text},
+            },
+            timeout=10.0,
+        )
+        if response.status_code != 200:
+            print(f"[ERROR] WhatsApp send failed: {response.text}")
+        else:
+            print(f"[OK] Message sent to {phone}")
+
+
+async def send_whatsapp_audio(phone: str, audio_bytes: bytes, fallback_text: str):
+    """
+    V1: sends text fallback since audio upload needs extra setup.
+    V2: upload audio_bytes to Meta media API first, then send audio message.
+    """
+    await send_whatsapp_text(phone, fallback_text)
 
 # Add this GET endpoint — Meta calls it once to verify your webhook is real
 
