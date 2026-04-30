@@ -1,4 +1,4 @@
-# 👵 Project Aji (ଅଜି)
+# 👵 Project Aji (അജി)
 
 ### *Bridging the Bureaucracy Gap with Empathy & Voice*
 
@@ -6,7 +6,7 @@
 [![Powered by Sarvam AI](https://img.shields.io/badge/AI-Sarvam%202026-blue.svg)](https://sarvam.ai)
 [![Social Good](https://img.shields.io/badge/Purpose-Public%20Good-green.svg)](#)
 
-**Aji** (meaning *Grandmother* in Odia) is a voice-first WhatsApp assistant designed to ensure that no citizen ever has to endure the trauma of physical verification for banking and government services during times of grief.
+**Aji** (meaning *Grandmother* in Odia, a term of respect) is a voice-first WhatsApp assistant designed to ensure that no citizen ever has to endure the trauma of physical verification for banking and government services during times of grief.
 
 Inspired by the tragic incident in Odisha where [a man had to carry his sister&#39;s remains to a bank](https://www.bbc.com/news/articles/clypl5jrjqlo), **Aji** acts as a native-language bridge between complex bureaucratic requirements and marginalized citizens.
 
@@ -16,7 +16,7 @@ Inspired by the tragic incident in Odisha where [a man had to carry his sister&#
 
 The goal is to move the burden of proof from the **individual** to the **infrastructure**.
 
-* **Voice-First:** No typing required. Talk to Aji in your native Odia dialect.
+* **Voice-First:** No typing required. Talk to Aji in your native Malayalam dialect.
 * **Zero-Trust Identity:** Secure verification via bank-generated single-purpose tokens (V2 feature).
 * **Strictly Informational:** Designed for guidance and document verification only—not for financial transactions.
 
@@ -26,7 +26,7 @@ The goal is to move the burden of proof from the **individual** to the **infrast
 
 | Layer                    | Technology                | Purpose                                                |
 | :----------------------- | :------------------------ | :----------------------------------------------------- |
-| **Speech-to-Text** | `Sarvam Saaras v3`      | Understanding code-mixed Odia and English.             |
+| **Speech-to-Text** | `Sarvam Saaras v3`      | Understanding code-mixed Malayalam and English.             |
 | **Brain (LLM)**    | `Sarvam-M`              | Empathetic reasoning and local legal context.          |
 | **Text-to-Speech** | `Sarvam Bulbul v3`      | Delivering help in the warm, human "Roopa" voice.      |
 | **Interface**      | `WhatsApp Business API` | Reaching users on the app they already know and trust. |
@@ -39,7 +39,7 @@ The goal is to move the burden of proof from the **individual** to the **infrast
 1. **Trigger:** A user in distress sends a voice note to the Aji WhatsApp number.
 2. **Processing:** `Saaras` transcribes the audio; `Sarvam-M` parses the emotional intent and identifies the bureaucratic roadblock.
 3. **The Guardrail:** Aji checks for a "Verification Token" (linked to the bank app) to ensure the user is who they say they are.
-4. **Empathy Response:** Aji explains the user's rights (e.g., Doorstep Banking, Digital Attestation) and guides them through the next steps in a comforting Odia voice note.
+4. **Empathy Response:** Aji explains the user's rights (e.g., Doorstep Banking, Digital Attestation) and guides them through the next steps in a comforting Malayalam voice note.
 
 ### AJI Conversation Flow
 

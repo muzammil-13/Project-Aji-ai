@@ -5,20 +5,20 @@ from models.schemas import TriageResult, UserMode, DistressLevel, BankCooperatio
 
 
 HIGH_DISTRESS_SIGNALS = [
-    "mara", "mariba", "death", "died", "gone", "passed",
-    "morila", "muruchi", "help", "please", "urgent",
-    "crying", "kanduchi", "kana kariba",
+    "maranam", "marichu", "death", "died", "gone", "passed",
+    "sahayam", "help", "please", "urgent",
+    "crying", "karayunnu", "enthu cheyyum",
 ]
 
 BANK_REFUSAL_SIGNALS = [
-    "refuse", "not helping", "nahi", "deilanhi", "denied",
-    "send away", "pathei dila", "boluchi nahi",
+    "refuse", "not helping", "illa", "thunnilla", "denied",
+    "sammadhikkunnilla", "thirichayachu",
 ]
 
 DOCUMENT_SIGNALS = {
-    "death_cert": ["death certificate", "mrutyu praman", "mrityu"],
+    "death_cert": ["death certificate", "marana certificate", "maranam"],
     "id_proof": ["aadhaar", "aadhar", "id card", "voter id"],
-    "heir_cert": ["legal heir", "varis praman", "succession"],
+    "heir_cert": ["legal heir", "avakaasha certificate", "succession"],
 }
 
 
@@ -38,7 +38,7 @@ def classify_triage(transcript: str) -> TriageResult:
     else:
         distress_level = DistressLevel.LOW
 
-    direct_question_signals = ["what", "how", "where", "when", "kana", "kemiti", "kahim"]
+    direct_question_signals = ["what", "how", "where", "when", "enthu", "enganey", "evide"]
     is_direct = "?" in text or any(q in text for q in direct_question_signals)
 
     if distress_level == DistressLevel.HIGH:
@@ -72,24 +72,24 @@ def get_next_guided_question(triage: TriageResult) -> str:
     Returns None when all 5 questions are answered → proceed to resolution.
     """
     if triage.relation_to_deceased is None:
-        return "Aapana paribara re kana hoi gala? (Who passed away in your family?)"
+        return "നിങ്ങളുടെ കുടുംബത്തിൽ ആരാണ് മരിച്ചത്? (Who passed away in your family?)"
 
     if triage.bank_name is None:
-        return "Sei bank ra naam kana? (What is the name of the bank?)"
+        return "ആ ബാങ്കിന്റെ പേരെന്താണ്? (What is the name of the bank?)"
 
     if triage.documents_ready is None:
         return (
-            "Aapana pasa mrutyu praman patra, id card, ebam legal heir certificate achi ki? "
+            "നിങ്ങളുടെ കയ്യിൽ മരണ സർട്ടിഫിക്കറ്റ്, ഐഡി കാർഡ്, നിയമപരമായ അവകാശ സർട്ടിഫിക്കറ്റ് എന്നിവയുണ്ടോ? "
             "(Do you have the death certificate, ID, and legal heir certificate?)"
         )
 
     if triage.bank_cooperation == BankCooperation.UNKNOWN:
         return (
-            "Bank aapananka sahajya karuchi ki? "
+            "ബാങ്ക് നിങ്ങളുമായി സഹകരിക്കുന്നുണ്ടോ? "
             "(Is the bank cooperating with you?)"
         )
 
     if triage.district is None:
-        return "Aapana kahim rahuchi? Kaunsi district? (Where are you? Which district?)"
+        return "നിങ്ങൾ എവിടെയാണ് താമസിക്കുന്നത്? ഏത് ജില്ലയിലാണ്? (Where are you? Which district?)"
 
     return None

@@ -31,7 +31,7 @@ async def transcribe_audio(audio_url: str) -> dict:
             files={"file": ("audio.ogg", audio_bytes, "audio/ogg")},
             data={
                 "model": STT_MODEL,
-                "language_code": "or-IN",   # Odia; Sarvam handles code-mixing
+                "language_code": "ml-IN",   # Malayalam; Sarvam handles code-mixing
                 "with_timestamps": False,
             },
             timeout=30.0,
@@ -41,11 +41,11 @@ async def transcribe_audio(audio_url: str) -> dict:
 
     return {
         "transcript": result.get("transcript", ""),
-        "language_code": result.get("language_code", "or-IN"),
+        "language_code": result.get("language_code", "ml-IN"),
     }
 
 
-async def synthesize_speech(text: str, language_code: str = "or-IN") -> bytes:
+async def synthesize_speech(text: str, language_code: str = "ml-IN") -> bytes:
     """
     Convert text response to Odia audio via Sarvam TTS.
     Returns raw audio bytes (wav).

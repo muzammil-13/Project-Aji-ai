@@ -91,7 +91,7 @@ def format_response_text(guidance: LegalGuidance, distress_high: bool = False) -
     High distress = shorter, simpler, more empathetic opening.
     """
     if distress_high:
-        opening = "Aapana ekla nahin. Aji aapananka sahajya karibe. "
+        opening = "നിങ്ങൾ തനിച്ചല്ല. അജി നിങ്ങളെ സഹായിക്കും. "
         # "You are not alone. Aji will help you."
     else:
         opening = ""
@@ -102,7 +102,7 @@ def format_response_text(guidance: LegalGuidance, distress_high: bool = False) -
 
     escalation_text = ""
     if guidance.escalation_path:
-        escalation_text = f" Jadi bank nahi mane, aapana RBI te complaint kariba parin: {guidance.escalation_path}."
+        escalation_text = f" ബാങ്ക് സമ്മതിക്കുന്നില്ലെങ്കിൽ, നിങ്ങൾക്ക് ആർബിഐയിൽ പരാതിപ്പെടാം: {guidance.escalation_path}."
 
     return (
         f"{opening}"

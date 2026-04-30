@@ -145,6 +145,6 @@ async def process_voice_message(incoming: IncomingVoiceMessage):
         print(f"[ERROR] Failed to process message from {incoming.sender_phone}: {e}")
         await send_whatsapp_text(
             incoming.sender_phone,
-            "Mafi karanti. Kichhi samasyā achhi. Kuchha samaya pachhe punah try karanti."
+            "ക്ഷമിക്കണം, ഒരു പ്രശ്നമുണ്ട്. അൽപ്പസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക."
             # "Sorry, there was a problem. Please try again in a moment."
         )
