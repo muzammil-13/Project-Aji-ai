@@ -7,7 +7,7 @@
 
 **Aji** (meaning *Grandmother* in Odia) is a voice-first WhatsApp assistant designed to ensure that no citizen ever has to endure the trauma of physical verification for banking and government services during times of grief.
 
-Inspired by the tragic incident in Odisha where a man had to carry his sister's remains to a bank, **Aji** acts as a native-language bridge between complex bureaucratic requirements and marginalized citizens.
+Inspired by the tragic incident in Odisha where [a man had to carry his sister's remains to a bank](https://www.bbc.com/news/articles/clypl5jrjqlo), **Aji** acts as a native-language bridge between complex bureaucratic requirements and marginalized citizens.
 
 ---
 
